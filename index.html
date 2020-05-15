@@ -26,6 +26,9 @@
   <!-- 스킵메뉴 -->
   <link rel="stylesheet" href="css/skip.css">
   <script src="js/skip.js"></script>
+  <!-- 피드백 -->
+  <link rel="stylesheet" href="css/feedback.css">
+  <script src="js/feedback.js"></script>
   <!-- 헤더 -->
   <link rel="stylesheet" href="css/header.css">
   <script src="js/header.js"></script>
@@ -36,6 +39,33 @@
     <div class="skip">
       <a href="#">HEADER.SKIPLINKTEXT</a>
       <a href="#">HEADER.SKIPLINKMENU</a>
+    </div>
+    <div class="feedback">
+      <div id="feedback_btn">피드백</div>
+      <div class="feedback_content">
+        <div class="feedback_box">
+          <p>X</p>
+          <div class="logo_img">
+            <img src="images/logo.svg" alt="logo">
+          </div>
+          <h3>고객님의 소중한 의견은 IWC 서비스 향상에 매우 중요합니다</h3>
+          <p>오늘은 어떤 종류의 피드백을 남기시겠습니까?<span>*</span></p>
+          <select id="select_option" >
+            <option value="">옵션을 선택해 주십시오</option>
+            <option value="">웹사이트</option>
+            <option value="">라디오</option>
+            <option value="">텔레비전</option>
+            <option value="">SNS</option>
+          </select>
+          <p>담당자와의 연락을 원하시면 아래에 이메일 주소를 남겨주십시오.</p>
+          <input type="text">
+          <p>본 양식에서는 고객 서비스 문의를 처리하지 않습니다</p>
+          <div class="button_box">
+            <input type="button" value="닫기">
+            <input type="button" value="보내기">
+          </div>
+        </div>
+      </div>
     </div>
     <header class="header">
       <div class="content1">
