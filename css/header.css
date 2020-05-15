@@ -1,11 +1,8 @@
 @charset 'utf-8';
 .header{
   position: relative;
-  z-index: 3;
 }
-.header>.content{
-  width:93.28125%;
-  max-width:1194px;
+.header>.content1{
   height:80px; 
   display:flex;
   flex-flow:row nowrap;
@@ -23,6 +20,29 @@
 .nav>ul>li>a{
   font-size:16px;
 }
+.nav .submenu{
+  position:absolute;
+  left:0;
+  top:100%;
+  width:100%;
+  height:800px;
+}
+.submenu_list{
+  display:flex;
+  flex-flow:row wrap;
+  justify-content:space-between;  
+}
+.submenu_list>li{
+  width:22.75%;
+  margin-bottom:20px;
+}
+.submenu_list>li:nth-child(5),
+.submenu_list>li:nth-child(6){
+  width:48.5%
+}
+
+
+
 .logo img{
   width:120px;  
 }
@@ -32,7 +52,7 @@
 .header_icons>ul>li{
   padding:0 16px;
 }
-.header_icons>ul>li:nth-child(4)>a{
+.header_icons>ul>li:nth-of-type(4)>a{
   display:inline-block;
   width:1px;
   height:20px;
@@ -53,20 +73,18 @@
   position: absolute;
   left:0;
   top:100%;
-  z-index: 2;
   width:100%;
-  height: 100%;
-  overflow: hidden;
+  height:100%;
   padding:10px 10%;
   background-color:#f7f7f7;
   display:flex;
   flex-flow:row nowrap;
   justify-content:space-between;
   align-items:center;
-  display: none;
+  display:none;
 }
 .search_form>input:first-child{
-  outline: none;
+  outline:none;
 }
 .search_form>input:first-child,.search_form>input:last-child{
   width:70%;
@@ -86,93 +104,213 @@
 }
 
 .login_form{
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 4;
-  background-color: rgba(0,0,0,0.8);
-  width: 100%;
-  height: 100%;
+  position:fixed;
+  left:0;
+  top:0;
+  z-index:4;
+  background-color:rgba(0,0,0,0.5);
+  width:100%;
+  height:100%;
+  display:none;
 }
-.login_form>.content{
-  width: 93.28125%;
-  max-width:1194px;
-  padding: 30px 0;
+.login_form>.content1{
+  padding:30px 0;
 }
 .login_close{
-  text-align: right;
+  text-align:right;
 }
 .login_close>#login_close_btn{
-  width: 30px;
-  cursor: pointer;
+  width:30px;
+  cursor:pointer;
 }
 .iwc_join{
-  width: 40%;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #ffffff;
+  width:40%;
+  margin:20px auto;
+  padding:20px;  
+  background:#ffffff;
 }
 .iwc_join>h2{
-  font-weight: 400;
-  font-size: 42px;
-  text-align: center;
+  font-weight:400;
+  font-size:42px;
+  text-align:center;
 }
 .iwc_join>h2>span{
-  font-weight: bold;
+  font-weight:bold;
 }
 .iwc_join>ul{
-  text-align: center;
+  text-align:center;
 }
 .iwc_join>ul>li{
-  display: inline-block;
-  margin: 20px;
-  font-size: 20px;
-  color: #999;
+  display:inline-block;
+  margin:20px;
+  font-size:20px;
+  color:#999999;
   cursor: pointer;
 }
 .iwc_join>ul>li.active{
-  color: #000000;
-  border-bottom: 2px solid #b19c5e;
+  color:#000000;
+  border-bottom:2px solid #b19c5e;
 }
 .iwc_join>div{
-  display: flex;
-  flex-flow: column nowrap;
-  margin: 20px 0;
+  display:flex;
+  flex-flow:column nowrap;
+  margin:20px 0;
 }
+.iwc_join>div::after{
+  content:'';
+  display:block;
+  font-size:12px;
+  color:red;
+  visibility:hidden;
+}
+.iwc_join>div.active::after{
+  visibility:visible;
+}
+.iwc_join>div:nth-of-type(1)::after{
+  content:'아이디는 이메일(e-mail) 형식(예:pam7461@hanmail.net)으로 입력하세요';
+}
+.iwc_join>div:nth-of-type(2)::after{
+  content:'패스워드는 반드시 영문+숫자+특수기호를 이용하여 6~12자 범위로 입력하세요';
+}
+
 .iwc_join>div>label{
-  font-size: 16px;
+  height:30px;
+  font-size:16px;
+  transition:0.3s;
 }
 .iwc_join>div>label.active{
-  font-size: 12px;
+  font-size:12px;
 }
 .iwc_join>div>input{
-  padding: 6px 10px;
-  border-bottom: 1px solid #999;
-  outline: none;
+  margin-top:-20px;
+  padding:6px 10px;
+  border-bottom:1px solid #999999;
+  background-color:transparent;
+  font-size:24px;
+  outline:none;
 }
-.iwc_join>div>input.acitve{
-  border-bottom: 1px solid #000000;
+.iwc_join>div>input.active{
+  border-bottom:1px solid #000000;
 }
 .iwc_join>p{
-  text-align: center;
-  margin: 20px 0;
+  text-align:center;
+  margin:20px 0;
 }
 .iwc_join>p>a:hover{
-  color: #b19c5e;
-  text-decoration: underline;
+  color:#b19c5e;
+  text-decoration:underline;
 }
 .iwc_join>input{
-  display: block;
-  margin: 20px auto;
-  border: 1px solid #000;
-  padding: 10px 60px;
-  outline: none;
+  display:block;
+  margin:20px auto;
+  border:1px solid #000000;
+  padding:10px 60px;
+  outline:none;
   cursor: pointer;
-  color: black;
-  background-color: white;
-  transition: 0.3s;
+  color:#000000;
+  background-color:#ffffff;  
+  transition:0.3s;
 }
 .iwc_join>input:hover{
-  color: white;
-  background-color: black;
+  color:#ffffff;
+  background-color:#000000; 
+}
+#lang_btn{
+  position: relative;
+}
+.lang_box{
+  position: absolute;
+  right:0;
+  top:100%;
+  width:300px; 
+  display:none; 
+}
+.lang_box>.tri{
+  display:flex;
+  flex-flow:row nowrap;
+}
+.lang_box>.tri>li:nth-child(1){
+  width:90%;
+}
+.lang_box>.tri>li:nth-child(2){
+  width:20px;
+  height:20px;
+  border:10px solid transparent;
+  border-bottom-color:#ffffff;
+}
+.lang_container{
+  padding:20px;
+  background-color:#ffffff;
+  box-shadow:
+  0 5px 10px rgba(0,0,0,0.2),
+  0 -5px 10px rgba(0,0,0,0.2),
+  5px 0 10px rgba(0,0,0,0.2),
+  -5px 0 10px rgba(0,0,0,0.2);
+}
+.lang_container>hr{
+  margin:10px 0;
+  height:3px;
+  background-color:black;
+}
+.lang_container>p{
+  margin:10px 0;
+}
+.lang_container>p:nth-of-type(1){
+  text-align:center;
+}
+.lang_container>p:nth-of-type(2){
+  font-size:14px;
+  color:#666666;
+}
+.lang_container>h4{
+  margin:10px 0;
+  border-bottom:1px dotted rgba(177, 156, 94,0.5);
+  padding-bottom:6px;
+  font-weight:normal;
+  font-size:12px;
+  cursor:pointer;
+  display:flex;
+  flex-flow:row nowrap;
+  justify-content:space-between;
+}
+.lang_container>h4::after{
+  content:'>';
+  display:inline-block;
+}
+.lang_container>ul{
+  margin:10px 0;
+  overflow-y:scroll;
+  display:none;
+}
+.lang_container>ul>li{
+  border-bottom:1px solid rgba(0,0,0,0.1);
+  padding:2px 0;
+  font-size:14px;
+  text-indent:20px;
+}
+.lang_container>ul.lang{
+  height:100px;
+}
+.lang_container>ul.national{
+  height:200px;
+}
+
+.rotate_sim{
+  display:inline-block;
+  transition:0.3s;
+}
+.rotate_sim.active{
+  transform:rotate(180deg);
+}
+.sub_menu_txt{
+  border-top: 4px solid #000000;
+}
+.sub_menu_txt>p{
+  padding: 6px 0;
+}
+.sub_menu_txt>p>a:hover{
+  color: #b19c5e;
+}
+.nav .sub_menu{
+  translate: ;
 }
